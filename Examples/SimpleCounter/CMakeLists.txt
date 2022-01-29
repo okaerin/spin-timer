@@ -1,10 +1,11 @@
 # Simple Counter Example
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-set(PROJECT "SimpleCounter")
-project(${PROJECT} LANGUAGES CXX)
+set(PROJECT_NAME "SimpleCounter")
+project(${PROJECT_NAME} 
+        VERSION 1.0.0
+        LANGUAGES CXX
+        DESCRIPTION "Basic usage of the SpinTimer")
 
-add_subdirectory("../../" ${CMAKE_CURRENT_BINARY_DIR}/SpinTimer)
-
-add_executable(${PROJECT} "main.cpp")
-target_link_libraries(${PROJECT} SpinTimer)
+add_executable(${PROJECT_NAME} "main.cpp")
+target_link_libraries(${PROJECT_NAME} SpinTimerLib)

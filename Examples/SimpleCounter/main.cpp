@@ -28,13 +28,11 @@ int main(void)
     SpinTimer spinTimer5sec(spinTimer_5s_millis, new MySpinTimerAction([&count3]() { count3++; }), SpinTimer::IS_RECURRING, SpinTimer::IS_AUTOSTART);
 
     // Forever Loop
-    for (;;)
+    while (true)
     {
-        std::cout << "SpinTimer_1s: " << count1 << "\n";
-        std::cout << "SpinTimer_2s: " << count2 << "\n";
-        std::cout << "SpinTimer_5s: " << count3 << "\e[A\e[A\r";
-
-        std::cout.flush();
+        std::cout << "SpinTimer_1s: " << count1 << std::endl;
+        std::cout << "SpinTimer_2s: " << count2 << std::endl;
+        std::cout << "SpinTimer_5s: " << count3 << "\e[A\e[A\r" << std::endl;
 
         scheduleTimers();
 
