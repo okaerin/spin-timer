@@ -1,9 +1,8 @@
-#ifdef UPTIMEINFOADAPTERPOSIX_H_
-#define UPTIMEINFOADAPTERPOSIX_H_
+#ifndef UPTIMEINFOPLATFORMPOSIX_H_
+#define UPTIMEINFOPLATFORMPOSIX_H_
 #include "IUptimeInfoPlatform.h"
-class UptimeInfoPlatformPosix : public IUptimeInfoPlatform
-{
-public:
-  unsigned long tMillis();
+class UptimeInfoPosix : public IUptimeInfoPlatform {
+  public:
+   unsigned long tMillis() const override;
 };
 #endif

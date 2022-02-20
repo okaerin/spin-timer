@@ -1,12 +1,10 @@
 #ifndef UPTIMEINFOPLATFORMARDUINO_H_
 #define UPTIMEINFOPLATFORMARDUINO_H_
-#ifdef ARDUINO
-#include "IUptimeInfoAdapter.h"
+#include "IUptimeInfoPlatform.h"
 
-class UptimeInfoPlatformArduino : public IUptimeInfoPlatform
-{
-public:
-  unsigned long tMillis();
+class UptimeInfoArduino : public IUptimeInfoPlatform {
+  public:
+   unsigned long tMillis() const override;
 };
-#endif
+
 #endif

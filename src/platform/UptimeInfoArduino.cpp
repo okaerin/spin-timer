@@ -1,7 +1,5 @@
 #include "platform/UptimeInfoArduino.h"
 #ifdef ARDUINO
 #include <Arduino.h>
-unsigned long UptimeInfoPlatformArduino::tMillis(){
-    return millis();
-}
+unsigned long UptimeInfoArduino::tMillis() const { return millis(); }
 #endif

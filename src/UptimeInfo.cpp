@@ -7,49 +7,40 @@
 #include "UptimeInfo.h"
 #include "platform/UptimeInfoArduino.h"
 #include "platform/UptimeInfoPosix.h"
+#include "platform/UptimeInfoSTM32.h"
 #include "platform/UptimeInfoWin32.h"
 
-#include <stdexcept>
-
-UptimeInfo* UptimeInfo::Instance(){
-  static UptimeInfo instance;
-  return &instance;
+UptimeInfo::UptimeInfo() { m_adapter = defaultStrategy(); }
+UptimeInfo* UptimeInfo::Instance() {
+   static UptimeInfo instance;
+   return &instance;
 }
-
-UptimeInfo::UptimeInfo()
-{
-  m_adapter = nullptr;
+std::shared_ptr<IUptimeInfoPlatform> UptimeInfo::defaultStrategy() const {
+   std::shared_ptr<IUptimeInfoPlatform> local_adapter;
 #if defined(ARDUINO)
-  s_adapter = new UptimeInfoAdapterArduino();
+   local_adapter = std::make_shared<UptimeInfoArduino>();
+#elif defined(ESP32)
+   local_adapter = std::make_shared<UptimeInfoSTM32>();
 #elif defined(__linux__)
-  s_adapter = new UptimeInfoAdapterPosix();
-#elif _WIN32
-  m_adapter = new UptimeInfoAdapterWin32();
+   local_adapter = std::make_shared<UptimeInfoPosix>();
+#elif defined _WIN32
+   local_adapter = std::make_shared<UptimeInfoWin32>();
 #else
-  throw std::runtime_error("missing platform implementation");
+#pragma message( \
+    "warning no default Uptime provider. Please provide one to UptimeInfo::setStrategy")
 #endif
+   return local_adapter;
+}
+void UptimeInfo::setStrategy(std::shared_ptr<IUptimeInfoPlatform> adapter) {
+   m_adapter = adapter;
 }
 
-UptimeInfo::~UptimeInfo()
-{
-  delete m_adapter;
-  m_adapter = nullptr;
-}
-
-void UptimeInfo::setAdapter(IUptimeInfoPlatform* adapter)
-{
-  m_adapter = adapter;
-}
-
-IUptimeInfoPlatform* UptimeInfo::adapter(){
-  return m_adapter;
-}
-unsigned long UptimeInfo::tMillis(){
-  unsigned long ms = 0;
-  IUptimeInfoPlatform* local_adapter = adapter();
-  if (local_adapter)
-  {
-    ms = local_adapter->tMillis();
-  }
-  return ms;
+std::shared_ptr<IUptimeInfoPlatform> UptimeInfo::adapter() { return m_adapter; }
+unsigned long UptimeInfo::tMillis() {
+   unsigned long ms = 0;
+   auto local_adapter = adapter();
+   if (local_adapter.get()) {
+      ms = local_adapter->tMillis();
+   }
+   return ms;
 }

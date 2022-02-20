@@ -2,7 +2,7 @@
 #define UPTIMEINFOSTM32_H_
 #include "IUptimeInfoPlatform.h"
 class UptimeInfoSTM32 : public IUptimeInfoPlatform {
-public:
-unsigned long tMillis() override;
+  public:
+   unsigned long tMillis() const override;
 };
 #endif
