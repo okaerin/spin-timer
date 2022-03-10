@@ -11,22 +11,7 @@
 #include "SpinTimerContext.h"
 #include "UptimeInfo.h"
 
-#include <limits.h>
-
-void scheduleTimers() { SpinTimerContext::instance()->handleTick(); }
-
-void delayAndSchedule(unsigned long delayMillis) {
-   // create a one-shot timer on the fly
-   SpinTimer delayTimer(delayMillis, nullptr, SpinTimer::EFrequency::SINGLESHOT,
-                        SpinTimer::EStart::AUTO);
-
-   // wait until the timer expires
-   while (!delayTimer.isExpired()) {
-      // schedule the timer above and all the other timers, so they will still
-      // run in 'parallel'
-      scheduleTimers();
-   }
-}
+#include <climits>
 
 SpinTimer::SpinTimer(unsigned long timeMillis,
                      std::unique_ptr<ISpinTimerAction> action, EFrequency freq,

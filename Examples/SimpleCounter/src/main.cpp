@@ -12,6 +12,7 @@
 
 #include "MySpinTimerAction.h"
 #include "SpinTimer.h"
+#include "SpinTimerContext.h"
 
 bool run_app = true;
 #ifdef _WIN32
@@ -71,7 +72,7 @@ int main(void) {
       std::cout << "SpinTimer_2s: " << count2 << std::endl;
       std::cout << "SpinTimer_5s: " << count3 << "\e[A\e[A\r" << std::endl;
 
-      scheduleTimers();
+      SpinTimerContext::instance()->handleTick();
 
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
    }

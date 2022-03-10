@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['tick_76',['tick',['../class_spin_timer.html#a393bb2bc686c802210a127aa357324a9',1,'SpinTimer']]],
-  ['timeexpired_77',['timeExpired',['../class_spin_timer_action.html#a45bccad7275feeabaaacf867437787b7',1,'SpinTimerAction']]],
-  ['tmillis_78',['tMillis',['../class_default_uptime_info_adapter.html#ac18261c849d90349273a70a0e21b1294',1,'DefaultUptimeInfoAdapter::tMillis()'],['../class_uptime_info_adapter.html#aae9600b84a90067106eb0cb624094153',1,'UptimeInfoAdapter::tMillis()'],['../class_uptime_info.html#abc7b5bed813d54597ab5a05a87c7bd35',1,'UptimeInfo::tMillis()']]]
+  ['setisrecurring_99',['setIsRecurring',['../class_spin_timer.html#a66efc8b9fa5b99aff52c553070d71a30',1,'SpinTimer']]],
+  ['setnext_100',['setNext',['../class_spin_timer.html#aae73c92243239b080f24d1b5ef2b473a',1,'SpinTimer']]],
+  ['setstrategy_101',['setStrategy',['../class_uptime_info.html#a532510a9eae1e0f73313caea8d890b4e',1,'UptimeInfo']]],
+  ['spintimer_102',['SpinTimer',['../class_spin_timer.html#a36afc4640651e1566771d36997a522f8',1,'SpinTimer']]],
+  ['start_103',['start',['../class_spin_timer.html#a32c9abdcbc24c00d0c89f58f9ea24eb3',1,'SpinTimer::start(unsigned long timeMillis)'],['../class_spin_timer.html#ae5fc5dae1ed71cf5b63c90bd69847898',1,'SpinTimer::start()']]]
 ];

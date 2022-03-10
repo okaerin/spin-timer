@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['defaultuptimeinfoadapter_43',['DefaultUptimeInfoAdapter',['../class_default_uptime_info_adapter.html',1,'']]]
+  ['ispintimeraction_58',['ISpinTimerAction',['../class_i_spin_timer_action.html',1,'']]],
+  ['iuptimeinfoplatform_59',['IUptimeInfoPlatform',['../class_i_uptime_info_platform.html',1,'']]]
 ];

@@ -1,6 +1,7 @@
 var class_uptime_info =
 [
-    [ "UptimeInfo", "class_uptime_info.html#a959cd9f3f342d22ebc64d51308b8d285", null ],
-    [ "~UptimeInfo", "class_uptime_info.html#a9d9348a4222919856948865288d8df78", null ],
-    [ "setAdapter", "class_uptime_info.html#a7155badb58740ef7dca8d40c7aeedd9c", null ]
+    [ "~UptimeInfo", "class_uptime_info.html#a9b9375f78f8c54cc1b7778165b3c1b44", null ],
+    [ "adapter", "class_uptime_info.html#afc308584365402386036a0bf7c60bee1", null ],
+    [ "setStrategy", "class_uptime_info.html#a532510a9eae1e0f73313caea8d890b4e", null ],
+    [ "tMillis", "class_uptime_info.html#a1c8b4e79271bfec0503c6b6df67c6cfb", null ]
 ];

@@ -10,22 +10,6 @@
 
 #include <memory>
 /**
- * Schedule all timers, check their expiration states.
- * @see SpinTimerContext::handleTick()
- */
-void scheduleTimers();
-
-/**
- * Delay the caller by the mentioned time while all timers are kept being
- * scheduled in the meanwhile.
- * @param delayMillis Time to wait in [ms]
- *
- * This function is kept for backward compatibility, you can use the arduino
- * delay() function instead.
- */
-void delayAndSchedule(unsigned long delayMillis);
-
-/**
  * Universal Timer.
  *
  * Features:

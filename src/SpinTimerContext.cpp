@@ -7,6 +7,7 @@
 
 #include "SpinTimerContext.h"
 
+#include "ISpinTimerAction.h"
 #include "SpinTimer.h"
 
 SpinTimerContext* SpinTimerContext::instance() {
@@ -46,6 +47,18 @@ void SpinTimerContext::handleTick() {
    while (timer != 0) {
       timer->tick();
       timer = timer->next();
+   }
+}
+void SpinTimerContext::handleTick(unsigned long delayMillis) {
+   // create a one-shot timer on the fly
+   SpinTimer delayTimer(delayMillis, nullptr, SpinTimer::EFrequency::SINGLESHOT,
+                        SpinTimer::EStart::AUTO);
+
+   // wait until the timer expires
+   while (!delayTimer.isExpired()) {
+      // schedule the timer above and all the other timers, so they will still
+      // run in 'parallel'
+      SpinTimerContext::instance()->handleTick();
    }
 }
 

@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['uptimeinfo_34',['UptimeInfo',['../class_uptime_info.html',1,'UptimeInfo'],['../class_uptime_info.html#a959cd9f3f342d22ebc64d51308b8d285',1,'UptimeInfo::UptimeInfo()']]],
-  ['uptimeinfo_2ecpp_35',['UptimeInfo.cpp',['../_uptime_info_8cpp.html',1,'']]],
-  ['uptimeinfo_2eh_36',['UptimeInfo.h',['../_uptime_info_8h.html',1,'']]],
-  ['uptimeinfoadapter_37',['UptimeInfoAdapter',['../class_uptime_info_adapter.html',1,'UptimeInfoAdapter'],['../class_uptime_info_adapter.html#a38f682884b67e40f4558b8a731551048',1,'UptimeInfoAdapter::UptimeInfoAdapter()']]]
+  ['recurring_19',['RECURRING',['../class_spin_timer.html#abd698a0c4ac027d352ce77c09e0baa4ea360837c264a76e3967e316ed4faa9e9a',1,'SpinTimer']]],
+  ['resetaction_20',['resetAction',['../class_spin_timer.html#a66fbfc6c02467656663da5ae36e45aeb',1,'SpinTimer']]]
 ];

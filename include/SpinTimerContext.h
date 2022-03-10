@@ -67,6 +67,13 @@ class SpinTimerContext {
     * Kick all attached SpinTimer objects (calls the SpinTimer::tick() method).
     */
    void handleTick();
+   /**
+    * @brief Kick all attached SpinTimer objects (calls the SpinTimer::tick()
+    * method) and busy waits
+    *
+    * @param delayMillis delay in millis
+    */
+   void handleTick(unsigned long delayMillis);
 
   private:
    /**

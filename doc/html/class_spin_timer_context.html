@@ -101,6 +101,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a71160bd3c2dc5d7f1e096ce7ed1c71b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbbe22b345d00702c6aaf3564bf0cc67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spin_timer_context.html#afbbe22b345d00702c6aaf3564bf0cc67">handleTick</a> ()</td></tr>
 <tr class="separator:afbbe22b345d00702c6aaf3564bf0cc67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac98a60e1d4cd9a2b30b28eae89c41dfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_spin_timer_context.html#ac98a60e1d4cd9a2b30b28eae89c41dfb">handleTick</a> (unsigned long delayMillis)</td></tr>
+<tr class="memdesc:ac98a60e1d4cd9a2b30b28eae89c41dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Kick all attached <a class="el" href="class_spin_timer.html">SpinTimer</a> objects (calls the <a class="el" href="class_spin_timer.html#a393bb2bc686c802210a127aa357324a9">SpinTimer::tick()</a> method) and busy waits.  <a href="class_spin_timer_context.html#ac98a60e1d4cd9a2b30b28eae89c41dfb">More...</a><br /></td></tr>
+<tr class="separator:ac98a60e1d4cd9a2b30b28eae89c41dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -123,15 +126,15 @@ Friends</h2></td></tr>
 <div class="textblock"><p>Spin Timer Context.</p>
 <p>Features:</p><ul>
 <li>is like a very simple scheduler.</li>
-<li>has to be kicked (by calling <a class="el" href="_spin_timer_8cpp.html#a7f2364edc008cc2606f262114fece9f4">scheduleTimers()</a> or <a class="el" href="class_spin_timer_context.html#afbbe22b345d00702c6aaf3564bf0cc67">SpinTimerContext::handleTick()</a>) as often as possible and/or on regular intervals, i.e. in the Arduino main loop() function: <pre class="fragment">#include "SpinTimer.h"
+<li>has to be kicked (by calling scheduleTimers() or <a class="el" href="class_spin_timer_context.html#afbbe22b345d00702c6aaf3564bf0cc67">SpinTimerContext::handleTick()</a>) as often as possible and/or on regular intervals, i.e. in the Arduino main loop() function: <pre class="fragment">  #include "SpinTimer.h"
 
-void loop()
-{
-  // Kick the timer(s)
-  scheduleTimers();
+  void loop()
+  {
+    // Kick the timer(s)
+    scheduleTimers();
 
-  // .. do something
-}
+    // .. do something
+  }
 </pre></li>
 <li>holds a single linked list of registered <a class="el" href="class_spin_timer.html">SpinTimer</a> objects, the SpinTimers automatically attach themselves to this on their creation and automatically detach themselves on their destruction.</li>
 <li>is a Singleton </li>
@@ -229,7 +232,7 @@ void loop()
 </div>
 </div>
 <a id="afbbe22b345d00702c6aaf3564bf0cc67"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbbe22b345d00702c6aaf3564bf0cc67">&#9670;&nbsp;</a></span>handleTick()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afbbe22b345d00702c6aaf3564bf0cc67">&#9670;&nbsp;</a></span>handleTick() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -243,6 +246,32 @@ void loop()
       </table>
 </div><div class="memdoc">
 <p>Kick all attached <a class="el" href="class_spin_timer.html">SpinTimer</a> objects (calls the <a class="el" href="class_spin_timer.html#a393bb2bc686c802210a127aa357324a9">SpinTimer::tick()</a> method). </p>
+
+</div>
+</div>
+<a id="ac98a60e1d4cd9a2b30b28eae89c41dfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac98a60e1d4cd9a2b30b28eae89c41dfb">&#9670;&nbsp;</a></span>handleTick() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SpinTimerContext::handleTick </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long&#160;</td>
+          <td class="paramname"><em>delayMillis</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Kick all attached <a class="el" href="class_spin_timer.html">SpinTimer</a> objects (calls the <a class="el" href="class_spin_timer.html#a393bb2bc686c802210a127aa357324a9">SpinTimer::tick()</a> method) and busy waits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">delayMillis</td><td>delay in millis </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -296,8 +325,8 @@ void loop()
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/workspaces/spin-timer/<a class="el" href="_spin_timer_context_8h_source.html">SpinTimerContext.h</a></li>
-<li>/workspaces/spin-timer/<a class="el" href="_spin_timer_context_8cpp.html">SpinTimerContext.cpp</a></li>
+<li><a class="el" href="_spin_timer_context_8h_source.html">SpinTimerContext.h</a></li>
+<li><a class="el" href="_spin_timer_context_8cpp.html">SpinTimerContext.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
