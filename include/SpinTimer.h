@@ -24,9 +24,9 @@
  *   - non-recurring (timer stops after timeout period is over)
  * - timer interval/timeout time configurable ([ms])
  * - automatically attaches to SpinTimerContext's linked list of SpinTimer
- * objects. As long as the SpinTimerContext::handleTick() will be called (use
- * global function scheduleTimers() to do so), this will periodically update the
- * timers' states and thus perform the timers' expire evaluations
+ * objects. As long as the SpinTimerContext::handleTick() will be called , this
+ * will periodically update the timers' states and thus perform the timers'
+ * expire evaluations
  * - based on system uptime (number of milliseconds since the system began
  * running the current program, i.e. Arduino: millis() function or STM32:
  * HAL_GetTick() function),
@@ -70,12 +70,12 @@
  * SpinTimer::IS_RECURRING, SpinTimer::IS_AUTOSTART);
  *       }
  *
- * - Loop: call scheduleTimers()
+ * - Loop: call SpinTimerContext::instance()->handleTick();
  *
  *       // The loop function is called in an endless loop
  *       void loop()
  *       {
- *         scheduleTimers();
+ *         SpinTimerContext::instance()->handleTick();
  *       }
  *
  * .

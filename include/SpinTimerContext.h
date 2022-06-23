@@ -15,16 +15,16 @@ class SpinTimer;
  *
  * Features:
  * - is like a very simple scheduler.
- * - has to be kicked (by calling scheduleTimers() or
- * SpinTimerContext::handleTick()) as often as possible and/or on regular
- * intervals, i.e. in the Arduino main loop() function:
+ * - has to be kicked (by calling SpinTimerContext::instance()->handleTick()) as
+ * often as possible and/or on regular intervals, i.e. in the Arduino main
+ * loop() function:
  *
  *       #include "SpinTimer.h"
  *
  *       void loop()
  *       {
  *         // Kick the timer(s)
- *         scheduleTimers();
+ *         SpinTimerContext::instance()->handleTick();;
  *
  *         // .. do something
  *       }

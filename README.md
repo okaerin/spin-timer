@@ -63,13 +63,13 @@ Here the integration of a SpinTimer is shown with a simple Arduino Sketch toggli
   }
   ```
 
-* loop: call `scheduleTimers()` function
+* loop: call `SpinTimerContext::instance()->handleTick();` function
 
   ```C++
   // The loop function is called in an endless loop
   void loop()
   {
-    scheduleTimers();
+    SpinTimerContext::instance()->handleTick();
   }
   ```
 
@@ -127,7 +127,7 @@ int main(void)
     
   while (1)
   {
-    scheduleTimers();
+    SpinTimerContext::instance()->handleTick();
   }    
 }
 ```
